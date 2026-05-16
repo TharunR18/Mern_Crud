@@ -1,0 +1,56 @@
+.container {
+  width: 500px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  cursor: pointer;
+}
+.note-card {
+  background: #f1f1f1;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+}
+
+.note-card button {
+  width: auto;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+
+.note-card button {
+  width: auto;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin-right: 8px;
+}
+
+.note-card button:first-of-type {
+  background: royalblue;
+}
+
+.note-card button:last-of-type {
+  background: crimson;
+}
