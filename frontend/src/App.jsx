@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import dotenv from "dotenv"
+
+dotenv.config()
 
 function App() {
   const [title, setTitle] = useState("");
@@ -10,7 +13,7 @@ function App() {
 
   const fetchNotes = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/crud");
+      const response = await axios.get(`${process.env.VITE_API_URL}/api/crud`);
 
       setNotes(response.data);
     } catch (error) {
@@ -27,7 +30,7 @@ function App() {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/crud/${editingId}`, {
+        await axios.put(`${process.env.VITE_API_URL}/api/crud/${editingId}`, {
           title,
           content,
         });
@@ -37,7 +40,7 @@ function App() {
       }
 
       else {
-        await axios.post("http://localhost:5000/api/crud", {
+        await axios.post(`${process.env.VITE_API_URL}/api/crud`, {
           title,
           content,
         });
@@ -52,7 +55,7 @@ function App() {
   };
   const deleteNote = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/crud/${id}`);
+      await axios.delete(`${process.env.VITE_API_URL}/api/crud/${id}`);
 
       fetchNotes();
     } catch (error) {
