@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import { Analytics } from "@vercel/analytics/next"
 
 
 function App() {
@@ -125,7 +126,9 @@ function App() {
           </p>
         </footer>
       </div>
+      <Analytics />
     </div>
+
   );
 }
 
