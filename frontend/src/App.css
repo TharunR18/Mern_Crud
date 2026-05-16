@@ -1,56 +1,444 @@
-.container {
-  width: 500px;
-  margin: 40px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Full app background */
+.app {
+  min-height: 100vh;
+  padding: 40px 0;
+  transition: 0.25s ease;
+}
+
+/* LIGHT MODE - default white retro */
+.app.light {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    #ffffff;
+  background-size: 24px 24px;
+  color: #2d1e12;
+}
+
+/* DARK MODE */
+.app.dark {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    #151515;
+  background-size: 24px 24px;
+  color: #f5f5f5;
+}
+
+/* Main wrapper */
+.container {
+  width: 90%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px;
+  border: 4px solid;
+  transition: 0.25s ease;
+}
+
+.light .container {
+  background: #ffffff;
+  border-color: #2d1e12;
+  box-shadow: 10px 10px 0 #2d1e12;
+}
+
+.dark .container {
+  background: #222222;
+  border-color: #f5f5f5;
+  box-shadow: 10px 10px 0 #f5f5f5;
+}
+
+/* Main title */
+h1 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 38px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.light h1 {
+  color: #2d1e12;
+  text-shadow: 3px 3px 0 #70a1ff;
+}
+
+.dark h1 {
+  color: #f5f5f5;
+  text-shadow: 3px 3px 0 #ff6b6b;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: block;
+  width: auto;
+  margin: 0 auto 24px;
+  padding: 12px 18px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 3px solid;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.light .theme-toggle {
+  background: #70a1ff;
+  color: #2d1e12;
+  border-color: #2d1e12;
+  box-shadow: 5px 5px 0 #2d1e12;
+}
+
+.dark .theme-toggle {
+  background: #ff6b6b;
+  color: #151515;
+  border-color: #f5f5f5;
+  box-shadow: 5px 5px 0 #f5f5f5;
+}
+
+.theme-toggle:hover {
+  transform: translate(-2px, -2px);
+}
+
+.light .theme-toggle:hover {
+  box-shadow: 7px 7px 0 #2d1e12;
+}
+
+.dark .theme-toggle:hover {
+  box-shadow: 7px 7px 0 #f5f5f5;
+}
+
+/* Section titles */
+h2 {
+  margin-top: 28px;
+  margin-bottom: 14px;
+  font-size: 22px;
+  text-transform: uppercase;
+  border-bottom: 3px solid;
+  padding-bottom: 8px;
+}
+
+.light h2 {
+  border-color: #2d1e12;
+}
+
+.dark h2 {
+  border-color: #f5f5f5;
+}
+
+/* Form */
+form {
+  padding: 18px;
+  border: 3px solid;
+  margin-bottom: 24px;
+  transition: 0.25s ease;
+}
+
+.light form {
+  background: #f2f2f2;
+  border-color: #2d1e12;
+  box-shadow: 6px 6px 0 #2d1e12;
+}
+
+.dark form {
+  background: #333333;
+  border-color: #f5f5f5;
+  box-shadow: 6px 6px 0 #f5f5f5;
+}
+
+/* Inputs */
 input,
-textarea,
-button {
+textarea {
   width: 100%;
   margin: 10px 0;
-  padding: 10px;
+  padding: 14px;
   font-size: 16px;
+  font-family: "Courier New", Courier, monospace;
+  border: 3px solid;
+  outline: none;
+  box-shadow: 4px 4px 0;
+  transition: 0.15s ease;
+}
+
+.light input,
+.light textarea {
+  background: #ffffff;
+  border-color: #2d1e12;
+  color: #2d1e12;
+  box-shadow: 4px 4px 0 #2d1e12;
+}
+
+.dark input,
+.dark textarea {
+  background: #151515;
+  border-color: #f5f5f5;
+  color: #f5f5f5;
+  box-shadow: 4px 4px 0 #f5f5f5;
+}
+
+input:focus,
+textarea:focus {
+  transform: translate(-2px, -2px);
+}
+
+.light input:focus,
+.light textarea:focus {
+  box-shadow: 6px 6px 0 #2d1e12;
+}
+
+.dark input:focus,
+.dark textarea:focus {
+  box-shadow: 6px 6px 0 #f5f5f5;
 }
 
 textarea {
-  height: 100px;
+  min-height: 110px;
+  resize: vertical;
 }
 
-button {
-  cursor: pointer;
-}
-.note-card {
-  background: #f1f1f1;
-  padding: 12px;
+/* Submit button */
+form button {
+  width: 100%;
   margin-top: 12px;
-  border-radius: 8px;
+  padding: 14px;
+  font-size: 17px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 3px solid;
+  cursor: pointer;
+  transition: 0.15s ease;
 }
 
+.light form button {
+  background: #70a1ff;
+  color: #2d1e12;
+  border-color: #2d1e12;
+  box-shadow: 5px 5px 0 #2d1e12;
+}
+
+.dark form button {
+  background: #ff6b6b;
+  color: #151515;
+  border-color: #f5f5f5;
+  box-shadow: 5px 5px 0 #f5f5f5;
+}
+
+form button:hover {
+  transform: translate(-2px, -2px);
+}
+
+.light form button:hover {
+  box-shadow: 7px 7px 0 #2d1e12;
+}
+
+.dark form button:hover {
+  box-shadow: 7px 7px 0 #f5f5f5;
+}
+
+form button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0;
+}
+
+/* Notes */
+.note-card {
+  padding: 18px;
+  margin: 18px 0;
+  border: 3px solid;
+  transition: 0.15s ease;
+}
+
+.light .note-card {
+  background: #78a0eb;
+  border-color: #2d1e12;
+  box-shadow: 6px 6px 0 #2d1e12;
+}
+
+.dark .note-card {
+  background: #353535;
+  border-color: #f5f5f5;
+  box-shadow: 6px 6px 0 #f5f5f5;
+}
+
+.note-card:hover {
+  transform: translate(-3px, -3px);
+}
+
+.light .note-card:hover {
+  box-shadow: 9px 9px 0 #2d1e12;
+}
+
+.dark .note-card:hover {
+  box-shadow: 9px 9px 0 #f5f5f5;
+}
+
+.note-card h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.light .note-card h3 {
+  color: #2d1e12;
+}
+
+.dark .note-card h3 {
+  color: #f5f5f5;
+}
+
+.note-card p {
+  margin: 0 0 16px;
+  line-height: 1.5;
+  padding: 10px;
+  border: 2px solid;
+}
+
+.light .note-card p {
+  background: #ffffff;
+  border-color: #2d1e12;
+  color: #2d1e12;
+}
+
+.dark .note-card p {
+  background: #151515;
+  border-color: #f5f5f5;
+  color: #f5f5f5;
+}
+
+/* Note buttons */
 .note-card button {
   width: auto;
-  background: crimson;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 12px;
+  margin-right: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 3px solid;
+  cursor: pointer;
+  box-shadow: 4px 4px 0;
+  transition: 0.15s ease;
 }
 
-.note-card button {
-  width: auto;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 12px;
-  margin-right: 8px;
+.light .note-card button {
+  border-color: #2d1e12;
+  color: #2d1e12;
+  box-shadow: 4px 4px 0 #2d1e12;
 }
 
+.dark .note-card button {
+  border-color: #f5f5f5;
+  color: #151515;
+  box-shadow: 4px 4px 0 #f5f5f5;
+}
+
+/* Edit button */
 .note-card button:first-of-type {
-  background: royalblue;
+  background: #cecece;
 }
 
+/* Delete button */
 .note-card button:last-of-type {
-  background: crimson;
+  background: #ff6b6b;
+}
+
+.note-card button:hover {
+  transform: translate(-2px, -2px);
+}
+
+.light .note-card button:hover {
+  box-shadow: 6px 6px 0 #2d1e12;
+}
+
+.dark .note-card button:hover {
+  box-shadow: 6px 6px 0 #f5f5f5;
+}
+
+.note-card button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0;
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  border-top: 3px solid;
+  transition: 0.25s ease;
+}
+
+.light .footer {
+  border-color: #2d1e12;
+}
+
+.dark .footer {
+  border-color: #f5f5f5;
+}
+
+.footer p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.footer a {
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.15s ease;
+}
+
+.light .footer a {
+  color: #ff6b6b;
+}
+
+.dark .footer a {
+  color: #70a1ff;
+}
+
+.light .footer a:hover {
+  text-shadow: 2px 1px 11px #e77110;
+}
+
+.dark .footer a:hover {
+  text-shadow: 2px 1px 11px #78c0fc;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .app {
+    padding: 20px 0;
+  }
+
+  .container {
+    width: 92%;
+    padding: 16px;
+  }
+
+  .light .container,
+  .dark .container {
+    box-shadow: 6px 6px 0 currentColor;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  form {
+    padding: 14px;
+  }
+
+  .note-card button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
 }

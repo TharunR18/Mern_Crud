@@ -8,6 +8,7 @@ function App() {
   const [content, setContent] = useState("");
   const [notes, setNotes] = useState([]);
   const [editingId, setEditingId] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
   const fetchNotes = async () => {
     try {
@@ -66,46 +67,63 @@ function App() {
     setEditingId(note._id);
   };
   return (
-    <div className="container">
-      <h1>MERN Notes App</h1>
+    <div className={darkMode ? "app dark" : "app light"}>
+      <div className="container">
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter note title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-
-        <textarea
-          placeholder="Enter note content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        ></textarea>
-
-        <button type="submit">
-          {editingId ? "Update Note" : "Add Note"}
+        <button
+          className="theme-toggle"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? "Light Mode" : "Dark Mode"}
         </button>
-      </form>
 
-      <div>
-        <h2>Preview</h2>
-        <p>Title: {title}</p>
-        <p>Content: {content}</p>
-      </div>
+        <h1>MERN-CRUD-APP</h1>
 
-      <div>
-        <h2>All Notes</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter note title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
 
-        {notes.map((note) => (
-          <div className="note-card" key={note._id}>
-            <h3>{note.title}</h3>
-            <p>{note.content}</p>
+          <textarea
+            placeholder="Enter note content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          ></textarea>
 
-            <button onClick={() => editNote(note)}>Edit</button>
-            <button onClick={() => deleteNote(note._id)}>Delete</button>
-          </div>
-        ))}
+          <button type="submit">
+            {editingId ? "Update Note" : "Add Note"}
+          </button>
+        </form>
+
+        <div>
+          <h2>All Notes</h2>
+
+          {notes.map((note) => (
+            <div className="note-card" key={note._id}>
+              <h3>{note.title}</h3>
+              <p>{note.content}</p>
+
+              <button onClick={() => editNote(note)}>Edit</button>
+              <button onClick={() => deleteNote(note._id)}>Delete</button>
+            </div>
+          ))}
+        </div>
+
+        <footer className="footer">
+          <p>
+            Crafted By{" "}
+            <a
+              href="https://www.linkedin.com/in/tharun2007/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Tharun
+            </a>
+          </p>
+        </footer>
       </div>
     </div>
   );
