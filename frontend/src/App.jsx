@@ -78,7 +78,7 @@ function App() {
           {darkMode ? "Light Mode" : "Dark Mode"}
         </button>
 
-        <h1>MERN-CRUD-APP</h1>
+        <h1> Task Tracker</h1>
 
         <form onSubmit={handleSubmit}>
           <input
