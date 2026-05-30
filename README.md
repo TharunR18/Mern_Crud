@@ -3,6 +3,10 @@
 A full-stack CRUD (Create, Read, Update, Delete) application built using the MERN stack. 
 The project allows users to manage records through a responsive interface with real-time database operations.
 
+## Screenshot
+
+![MERN CRUD](screenshot.png)
+
 ## Live Demo
 
 🔗 https://mern-crud-web.vercel.app
