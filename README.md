@@ -11,17 +11,6 @@ The project allows users to manage records through a responsive interface with r
 
 🔗 https://mern-crud-web.vercel.app
 
-## Features
-
-- Create new records
-- View all records
-- Update existing records
-- Delete records
-- Responsive user interface
-- RESTful API integration
-- dark & white Theme
-- MongoDB database operations
-
 ## Tech Stack
 
 ### Frontend
@@ -36,15 +25,6 @@ The project allows users to manage records through a responsive interface with r
 ### Database
 - MongoDB
 - Mongoose
-
-## API Operations
-
-| Method | Action |
-|----------|----------|
-| GET | Fetch records |
-| POST | Create record |
-| PUT | Update record |
-| DELETE | Delete record |
 
 ## Learning Outcomes
 
